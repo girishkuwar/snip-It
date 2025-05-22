@@ -1,0 +1,64 @@
+p {
+  white-space: pre-wrap;
+}
+
+.codeeditor {
+  max-width: 300px;
+  max-height: 500px;
+  background-color: #1d1e22;
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  padding: 2px;
+  margin: 5px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.codeeditor::-webkit-scrollbar {
+  display: none;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.title {
+  font-family: Lato, sans-serif;
+  font-weight: 900;
+  font-size: 14px;
+  letter-spacing: 1.57px;
+  color: rgb(212 212 212);
+}
+
+.editor_content {
+  margin: 0 10px 10px;
+  color: rgb(207, 207, 207);
+}
+
+.copybtn {
+  background: none;
+  border: none;
+  color: rgb(160, 160, 160);
+}
+
+.copybtn:hover {
+  color: white;
+}
+
+.list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 4fr));
+  padding: 30px 3%;
+  gap: 10px;
+}
+
+.selector {
+  margin: 10px;
+  padding: 6px 12px;
+  background: rgba(0, 0, 0, 0.63);
+  color: white;
+}

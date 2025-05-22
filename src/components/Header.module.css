@@ -1,0 +1,27 @@
+
+
+
+
+
+
+.navbar {
+    background-color: #141414;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+  }
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: block;
+    border-radius: 20px;
+  }
+  .navbar a:hover {
+    background-color: #575757;
+  }
+  .nav_left, .nav_right {
+    display: flex;
+    align-items: center;
+  }
