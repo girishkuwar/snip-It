@@ -7,6 +7,7 @@ import React, { useEffect, useState } from 'react'
 import styles from './Home.module.css'
 import { addDoc, collection, onSnapshot, query, where } from 'firebase/firestore';
 import { db } from '../../firebase.config';
+import SingleSnip from '../singlesnippet/SingleSnip';
 
 const Home = () => {
   const [Name, setName] = useState('');
@@ -16,6 +17,8 @@ const Home = () => {
   const [sniplang, setSniplang] = useState([]);
   const [savesninlang, setSavesninlang] = useState("");
   const [reload, setReload] = useState(true);
+  const [viewer, setViewer] = useState('none');
+  const [singlesnip, setSinglesnip] = useState([]);
 
   const addData = async () => {
     const docRef = await addDoc(collection(db, "snippets", "jWxzdBnG6SWyBaDPKQKC", "css"), {
@@ -54,6 +57,15 @@ const Home = () => {
     })
   }
 
+  const viewBig = (i) => {
+    if (viewer === "none") {
+      setViewer("block");
+      setSinglesnip(mySnip[i]);
+    } else if (viewer === "block") {
+      setViewer("none");
+    }
+  }
+
 
 
 
@@ -72,6 +84,7 @@ const Home = () => {
 
   return (
     <div>
+      <SingleSnip display={viewer} snip={singlesnip} changer={viewBig} />
       <select className={styles.selector} name="brand" onChange={(e) => getcatsnippet(e.target.value)}>
         <option value="all">All</option>
         {
@@ -86,7 +99,7 @@ const Home = () => {
       <div className={styles.list}>
         {
           mySnip.map((e, i) => {
-            return (<div key={i}>
+            return (<div  key={i}>
               <div className={styles.codeeditor}>
                 <div className={styles.header}>
                   <span className={styles.title}>{e.name}</span>
@@ -94,7 +107,7 @@ const Home = () => {
                 </div>
                 <div className={styles.editor_content}>
                   <code className={styles.code}>
-                    <p>{e.snip}</p>
+                    <p onClick={() => { viewBig(i) }}>{e.snip}</p>
                   </code>
                 </div>
               </div>

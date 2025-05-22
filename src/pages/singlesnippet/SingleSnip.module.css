@@ -1,0 +1,71 @@
+.bigsnip {
+    position: fixed;
+    z-index: 15;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.39);
+    backdrop-filter: blur(5px);
+    top: 0;
+}
+
+
+.image {
+    display: flex;
+    height: 100vh;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.image .imgcontainer {
+    max-height: 90%;
+    max-width: 90%;
+    position: relative;
+    background-color: #1d1e22;
+    border-radius: 10px;
+}
+.imgcontainer .todo {
+    max-height: 90%;
+    max-width: 90%;
+    padding: 50px;
+    border-radius: 50px;
+    max-height: 800px;
+}
+
+.todo h2 {
+    font-size: 1.8rem;
+    color:  rgb(85, 235, 142);
+    margin-bottom: 30px;
+}
+.todo p {
+    font-size: 1rem;
+    color: rgb(207, 207, 207);
+}
+.todo .closebtn {
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
+    font-size: 1.2rem;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.todo .copybtn {
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    background: rgba(0, 0, 0, 0.288);
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-size: .7rem;
+}
+
+.copybtn:hover {
+    background: rgba(0, 0, 0, 0.842);
+}
