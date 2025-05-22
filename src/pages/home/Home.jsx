@@ -90,7 +90,7 @@ const Home = () => {
               <div className={styles.codeeditor}>
                 <div className={styles.header}>
                   <span className={styles.title}>{e.name}</span>
-                  <button className={styles.copybtn} onClick={() => { navigator.clipboard.writeText(e.snippet) }}>COPY</button>
+                  <button className={styles.copybtn} onClick={() => { navigator.clipboard.writeText(e.snip) }}>COPY</button>
                 </div>
                 <div className={styles.editor_content}>
                   <code className={styles.code}>
