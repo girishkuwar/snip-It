@@ -8,7 +8,6 @@ import styles from './Home.module.css'
 import { addDoc, collection, onSnapshot, query, where } from 'firebase/firestore';
 import { db } from '../../firebase.config';
 import SingleSnip from '../singlesnippet/SingleSnip';
-import bg from '../../assets/bottombg.svg';
 
 const Home = () => {
   const [Name, setName] = useState('');

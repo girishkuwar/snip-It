@@ -5,9 +5,11 @@ import Layout from './components/Layout.jsx'
 
 import Home from './pages/home/Home.jsx'
 import AddSnip from './pages/addsnippet/AddSnip.jsx'
+import ShowRoom from './pages/showroom/ShowRoom.jsx'
+import Fullcode from './pages/fullcodeviewer/Fullcode.jsx'
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
     <>
@@ -16,6 +18,8 @@ function App() {
           <Route path='/' element={<Layout />}>
             <Route index element={<Home />} />
             <Route path='addsnip' element={<AddSnip />} />
+            <Route path='showroom' element={<ShowRoom/>} />
+            <Route path='showroom/:id'  element={<Fullcode/>} />
           </Route>
         </Routes>
 

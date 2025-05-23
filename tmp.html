@@ -1,0 +1,270 @@
+<div class="Fullview">
+  <div class="image">
+    <div class="imgcontainer">
+      <div class="imgshower">
+        <img
+          src="https://www.rockstargames.com/VI/_next/image?url=%2FVI%2F_next%2Fstatic%2Fmedia%2FJason_and_Lucia_02_landscape.8aced7fd.jpg&w=3840&q=75"
+          alt=""
+        />
+      </div>
+      <div class="close">
+        <img class="closeCross" src="closebtn" alt="" /><!--  // add close btn -->
+      </div>
+      <div class="likescontainer">
+         <h1><img src="" />2</h1><!--add like icon -->
+        <h1><img src="" />6</h1>  <!--  add duslike icon -->
+      </div>
+      <div class="btns">
+        <button class="prewBtn">Prew</button>
+        <button class="nextBtn">Next</button>
+      </div>
+
+      <div class="commentcontainer">
+        <div class="comments">
+          <div class="commentBubble">
+            <h1>username</h1>
+            <p>comment</p>
+          </div>
+        </div>
+      </div>
+      <div class="commentBox">
+        <input type="text" placeholder="Add comment" />
+        <button onClick="{sendComment}"><img src="{sendicon}" alt="" /></button>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  .Fullview {
+    transition: 0.55s ease;
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    z-index: 15;
+    background-color: rgba(0, 0, 0, 0.74);
+    backdrop-filter: blur(10px);
+    top: 0;
+  }
+
+  .image {
+    display: flex;
+    height: 100vh;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .image .imgcontainer {
+    max-height: 90%;
+    max-width: 90%;
+    position: relative;
+    min-width: 70%;
+  }
+
+  .imgshower {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(145, 145, 145, 0.247);
+    background-blend-mode: normal;
+    backdrop-filter: blur(5px);
+  }
+
+  .imgshower img {
+    height: 100%;
+    max-width: 100%;
+  }
+
+  .imgcontainer .btns .prewBtn {
+    width: 92.61px;
+    height: 30px;
+    border-radius: 20px 0 0 20px;
+    background: rgba(0, 0, 0, 0.247);
+    background-blend-mode: normal;
+    backdrop-filter: blur(5px);
+    border: none;
+    color: white;
+  }
+
+  .imgcontainer .btns .nextBtn {
+    width: 92.61px;
+    height: 30px;
+    border-radius: 0 20px 20px 0;
+    background: rgba(0, 0, 0, 0.247);
+    background-blend-mode: normal;
+    backdrop-filter: blur(5px);
+    border: none;
+    color: white;
+  }
+
+  .closebtn {
+    background: rgb(163, 163, 163);
+    border: 1px solid rgb(255, 255, 255);
+    padding: 5px 20px;
+    color: wheat;
+    position: absolute;
+    left: 0;
+    border-radius: 0 0 50% 0;
+  }
+
+  .likescontainer {
+    color: rgb(255, 255, 255);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    bottom: 0;
+    margin: 20px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.247);
+    background-blend-mode: normal;
+    backdrop-filter: blur(5px);
+    width: 120px;
+    height: 50px;
+    z-index: 10;
+  }
+
+  .likescontainer .likes {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    gap: 3px;
+  }
+
+  .btns {
+    position: absolute;
+    bottom: 25px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    z-index: 6;
+  }
+
+  .close {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 178.21px;
+    height: 178.21px;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.45) 0%,
+      rgba(0, 0, 0, 0) 40.12%
+    );
+    background-blend-mode: normal;
+  }
+
+  .closeCross:hover .close {
+    background: gold;
+  }
+
+  .close img {
+    width: 20px;
+    height: 20px;
+    margin: 10px;
+  }
+
+  .commentcontainer {
+    /* background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(3, 3, 3, 0.733) 50%, rgba(3, 3, 3, 0.856) 97.16%); */
+    background-blend-mode: normal;
+    position: absolute;
+    right: 0;
+    width: 30%;
+    transform: translateX(50%);
+    height: 90%;
+    top: 0;
+    z-index: 5;
+    /* background: rgba(24, 24, 24, 0.699); */
+    overflow-y: scroll;
+  }
+
+  .commentcontainer::-webkit-scrollbar {
+    display: none;
+  }
+
+  .comments {
+    margin: 50px 50px 0 0;
+    /* background: rgba(0, 128, 0, 0.322); */
+    color: white;
+    position: absolute;
+    /* right: 0; */
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .commentBubble {
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.247);
+    background-blend-mode: normal;
+    backdrop-filter: blur(5px);
+    padding: 10px 10px 15px;
+    margin: 4px 0;
+    min-width: 220px;
+  }
+
+  .comments h1 {
+    font-size: 0.7rem;
+    margin-bottom: 5px;
+  }
+
+  .comments p {
+    font-size: 0.6rem;
+    font-weight: lighter;
+    color: rgb(190, 190, 190);
+  }
+
+  .commentBox {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 35px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.247);
+    background-blend-mode: normal;
+    backdrop-filter: blur(5px);
+    border-radius: 8px;
+    margin: 20px;
+  }
+
+  .commentBox input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    height: 100%;
+    width: 100%;
+    padding: 5px 15px;
+    /* border-bottom: 1px solid rgb(121, 121, 121); */
+  }
+
+  .commentBox input::placeholder {
+    color: rgb(151, 151, 151);
+    mix-blend-mode: difference;
+  }
+
+  .commentBox button {
+    height: 100%;
+    /* background: rgba(0, 0, 0, 0.336); */
+    background: transparent;
+    /* border: 1px solid rgb(121, 121, 121); */
+    border: none;
+    color: white;
+    padding: 0 15px;
+    font-size: 0.7rem;
+    transition: 1s;
+  }
+</style>

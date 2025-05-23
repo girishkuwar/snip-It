@@ -11,8 +11,9 @@ const Header = () => {
         <Link to={"/"}><img src={logo} alt="" /></Link>
         </div>
         <div className={styles.nav_right}>
-          <Link to={"/"}>Home</Link>
+         
           <Link to={"/addsnip"}>Add Snip</Link>
+          <Link to={"/showroom"}>ShowRoom</Link>
         </div>
       </div>
   )
