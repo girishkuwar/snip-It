@@ -1,0 +1,14 @@
+[
+  {
+    "sno": 1,
+    "name": "fixed footer",
+    "desc": "add wave background in footer in fixed positon",
+    "isComplete": true
+  },
+  {
+    "sno": 2,
+    "name": "fixed background",
+    "desc": "fixed background image make it more good loooking with hacker quotes",
+    "isComplete": false
+  }
+]

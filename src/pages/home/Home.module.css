@@ -1,7 +1,9 @@
 p {
   white-space: pre-wrap;
 }
-
+.snippetslist {
+  backdrop-filter: blur(5px);
+}
 .codeeditor {
   max-width: 300px;
   max-height: 380px;

@@ -6,4 +6,5 @@
 body {
     background-image: url(../src/assets/bg.png);
     background-size: cover;
+    background-position: center;
 }
