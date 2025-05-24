@@ -21,7 +21,22 @@ const ShowRoom = () => {
 
     return (
         <div className={styles.list}>
-            <Link to={"/"}></Link>
+            <Link to={"/addtoshowroom"}>
+                <div className={styles.card}>
+                    <div className={styles.center}>
+                        {/* <div className={styles.articlecard}>
+
+                            <div className={styles.imgshower}>
+                                <img src={e.img_address} alt="article-cover" />
+                            </div>
+                        </div>
+                        <div className={styles.content}>
+                            <p className={styles.title}>{e.name}</p>
+                        </div> */}
+                        <h1 className={styles.addicon}>+</h1>
+                    </div>
+                </div>
+            </Link>
             {
                 cardData.map((e, i) => {
                     return (<Link to={`${e.id}`}>
@@ -33,9 +48,9 @@ const ShowRoom = () => {
                                         <img src={e.img_address} alt="article-cover" />
                                     </div>
                                 </div>
-                            <div className={styles.content}>
-                                <p className={styles.title}>{e.name}</p>
-                            </div>
+                                <div className={styles.content}>
+                                    <p className={styles.title}>{e.name}</p>
+                                </div>
                             </div>
                         </div>
                     </Link>)

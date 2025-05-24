@@ -1,7 +1,7 @@
 .list {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 4fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 4fr));
   padding: 30px 3%;
   gap: 10px;
   background: #635d5d;
@@ -64,4 +64,13 @@
   color: rgba(255, 255, 255, 0.712);
   padding: 15px 0;
   border-radius: 10px;
+}
+
+.addicon {
+  font-size: 5rem;
+}
+
+a {
+  text-decoration: none;
+  color: white;
 }

@@ -8,6 +8,7 @@ import styles from './Home.module.css'
 import { addDoc, collection, onSnapshot, query, where } from 'firebase/firestore';
 import { db } from '../../firebase.config';
 import SingleSnip from '../singlesnippet/SingleSnip';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   const [Name, setName] = useState('');
@@ -97,9 +98,16 @@ const Home = () => {
       </select>
 
       <div className={styles.list}>
+        <div>
+        <Link to={"/addsnip"}>
+          <div className={styles.codeeditor_blank}>
+            <h1>+</h1>
+          </div>
+        </Link>
+        </div>
         {
           mySnip.map((e, i) => {
-            return (<div  key={i}>
+            return (<div key={i}>
               <div className={styles.codeeditor}>
                 <div className={styles.header}>
                   <span className={styles.title}>{e.name}</span>
@@ -116,7 +124,7 @@ const Home = () => {
           })
         }
       </div>
-      
+
     </div>
   )
 

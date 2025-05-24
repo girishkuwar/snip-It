@@ -7,6 +7,7 @@ import Home from './pages/home/Home.jsx'
 import AddSnip from './pages/addsnippet/AddSnip.jsx'
 import ShowRoom from './pages/showroom/ShowRoom.jsx'
 import Fullcode from './pages/fullcodeviewer/Fullcode.jsx'
+import AddShowRoom from './pages/addToShowroom/AddShowRoom.jsx'
 
 function App() {
   
@@ -20,6 +21,7 @@ function App() {
             <Route path='addsnip' element={<AddSnip />} />
             <Route path='showroom' element={<ShowRoom/>} />
             <Route path='showroom/:id'  element={<Fullcode/>} />
+            <Route path='addtoshowroom' element={<AddShowRoom/>} />
           </Route>
         </Routes>
 
