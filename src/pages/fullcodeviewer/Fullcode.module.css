@@ -6,6 +6,7 @@
     justify-content: space-evenly;
     padding: 10px 3%;
     gap: 25px;
+    backdrop-filter: blur(10px);
 }
 
 .code_html {

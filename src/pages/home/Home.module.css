@@ -1,9 +1,16 @@
 p {
   white-space: pre-wrap;
 }
+
 .snippetslist {
   backdrop-filter: blur(5px);
+  min-height: 100vh;
+  background: #635d5d;
+  /* background: linear-gradient(90deg, rgba(99, 93, 93, 1) 0%, rgba(38, 89, 60, 1) 51%, rgba(0, 0, 0, 1) 100%); */
+  /* background: linear-gradient(90deg,rgba(0, 0, 0, 1) 0%, rgb(32, 80, 40) 51%, rgba(0, 0, 0, 1) 100%); */
+  background: linear-gradient(90deg, rgb(37 36 36) 0%, rgb(15 39 19) 51%, rgba(0, 0, 0, 1) 100%);
 }
+
 .codeeditor {
   max-width: 300px;
   max-height: 380px;
@@ -32,7 +39,7 @@ p {
   font-weight: 900;
   font-size: 14px;
   letter-spacing: 1.57px;
-  color: rgb(85, 235, 142);
+  color: #55eb8e;
 }
 
 .editor_content {
@@ -63,4 +70,9 @@ p {
   padding: 6px 12px;
   background: rgba(0, 0, 0, 0.63);
   color: white;
+}
+
+.code p {
+  font-size: .9rem;
+  overflow: hidden;
 }

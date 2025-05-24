@@ -39,11 +39,11 @@ const AddSnip = () => {
 
 
 
-    return (<>
+    return (<div className={styles.editor}>
         <div className={styles.insert_table}>
             <input className={styles.inputsnip} type='text' placeholder='Name' onChange={(e) => { setName(e.target.value) }} value={Name} />
             <textarea className={styles.inputsnipbig} name="Snippet" placeholder='snippets' cols="50" rows="20" onChange={(e) => { setSnippets(e.target.value) }} value={snippets}></textarea>
-            <textarea className={styles.inputsnipbig} type='text' cols="20" row="10" placeholder='info' onChange={(e) => { setInfo(e.target.value) }} value={info} />
+            <textarea className={styles.inputsnipbig} type='text' cols="40" row="20" placeholder='info' onChange={(e) => { setInfo(e.target.value) }} value={info} />
             <select className={styles.selecter} name="brand"  onChange={(e) => setSavesninlang(e.target.value)}>
                 <option value="all">All</option>
                 {
@@ -56,7 +56,7 @@ const AddSnip = () => {
             </select>
             <button className={styles.inputbtn} onClick={() => { addData() }}>save</button>
         </div>
-    </>
+    </div>
 
     )
 }

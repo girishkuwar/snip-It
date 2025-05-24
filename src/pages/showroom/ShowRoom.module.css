@@ -1,56 +1,67 @@
+.list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 4fr));
+  padding: 30px 3%;
+  gap: 10px;
+  background: #635d5d;
+  /* background: linear-gradient(90deg, rgba(99, 93, 93, 1) 0%, rgba(38, 89, 60, 1) 51%, rgba(0, 0, 0, 1) 100%); */
+  min-height: 100vh;
+  /* background-image: linear-gradient( 98.7deg,  rgba(34,175,245,1) 2.8%, rgba(98,247,151,1) 97.8% ); */
+  background-image: linear-gradient( 98.7deg,  rgba(34,175,245,1) 2.8%, rgb(32, 74, 85) 97.8% );
+}
+
+
+.card {
+  height: 400px;
+  width: 400px;
+  background: rgba(22, 22, 22, 0.459);
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+}
 
 .center {
-    display: flex;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .articlecard {
-    width: 350px;
-    height: 220px;
-    border-radius: 12px;
-    overflow: hidden;
-    position: relative;
-    font-family: Arial, Helvetica, sans-serif;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    transition: all 300ms;
-  }
-  
-  .articlecard:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  }
-  
-  .articlecard img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .articlecard .content {
-    box-sizing: border-box;
-    width: 100%;
-    position: absolute;
-    padding: 30px 20px 20px 20px;
-    height: auto;
-    bottom: 0;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
-  }
-  
-  .articlecard .date,
-  .articlecard .title {
-    margin: 0;
-  }
-  
-  .articlecard .date {
-    font-size: 12px;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 4px;
-  }
-  
-  .articlecard .title {
-    font-size: 17px;
-    color: #fff;
-  }
-  
+  display: flex;
+  height: 100%;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.articlecard {
+  max-height: 90%;
+  max-width: 90%;
+  position: relative;
+  min-width: 70%;
+}
+
+.articlecard .imgshower {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-blend-mode: normal;
+}
+
+.articlecard img {
+  height: 100%;
+  max-width: 100%;
+}
+
+
+.content {
+  width: 100%;
+  background-color: rgba(14, 13, 13, 0.671);
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  z-index: 6;
+  color: rgba(255, 255, 255, 0.712);
+  padding: 15px 0;
+  border-radius: 10px;
+}

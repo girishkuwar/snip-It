@@ -21,18 +21,24 @@ const ShowRoom = () => {
 
     return (
         <div className={styles.list}>
+            <Link to={"/"}></Link>
             {
                 cardData.map((e, i) => {
-                    return (<Link to={`${e.id}`}> <div key={i} className={styles.card}>
-                        <div className={styles.center}>
-                            <div className={styles.articlecard}>
-                                <div className={styles.content}>
-                                    <p className={styles.title}>{e.name}</p>
+                    return (<Link to={`${e.id}`}>
+                        <div key={i} className={styles.card}>
+                            <div className={styles.center}>
+                                <div className={styles.articlecard}>
+
+                                    <div className={styles.imgshower}>
+                                        <img src={e.img_address} alt="article-cover" />
+                                    </div>
                                 </div>
-                                <img src={e.img_address} alt="article-cover" />
+                            <div className={styles.content}>
+                                <p className={styles.title}>{e.name}</p>
+                            </div>
                             </div>
                         </div>
-                    </div></Link>)
+                    </Link>)
                 })
             }
 
