@@ -83,9 +83,10 @@ const Home = () => {
     })
   }, [reload])
 
-  return (
+  return (<div>
+     <SingleSnip display={viewer} snip={singlesnip} changer={viewBig} />
     <div className={styles.snippetslist}>
-      <SingleSnip display={viewer} snip={singlesnip} changer={viewBig} />
+     
       <select className={styles.selector} name="brand" onChange={(e) => getcatsnippet(e.target.value)}>
         <option value="all">All</option>
         {
@@ -125,6 +126,7 @@ const Home = () => {
         }
       </div>
 
+    </div>
     </div>
   )
 
