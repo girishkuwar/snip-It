@@ -1,137 +1,144 @@
-
-
-
-
-
-import React, { useEffect, useState } from 'react'
-import styles from './Home.module.css'
+import React, { useEffect, useState } from 'react';
+import styles from './Home.module.css';
 import { addDoc, collection, onSnapshot, query, where } from 'firebase/firestore';
 import { db } from '../../firebase.config';
 import SingleSnip from '../singlesnippet/SingleSnip';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
-  const [Name, setName] = useState('');
-  const [snippets, setSnippets] = useState('');
+  const [name, setName] = useState('');
+  const [snippetText, setSnippetText] = useState('');
   const [info, setInfo] = useState('');
-  const [mySnip, setMySnip] = useState([]);
-  const [sniplang, setSniplang] = useState([]);
-  const [savesninlang, setSavesninlang] = useState("");
+  const [snippetsList, setSnippetsList] = useState([]);
+  const [languages, setLanguages] = useState([]);
+  const [selectedLang, setSelectedLang] = useState("all");
   const [reload, setReload] = useState(true);
   const [viewer, setViewer] = useState('none');
-  const [singlesnip, setSinglesnip] = useState([]);
+  const [singleSnippet, setSingleSnippet] = useState(null);
 
   const addData = async () => {
-    const docRef = await addDoc(collection(db, "snippets", "jWxzdBnG6SWyBaDPKQKC", "css"), {
-      name: Name,
-      snippet: snippets,
-      info: info
-    });
-    alert("doc added");
-  }
+    try {
+      await addDoc(collection(db, "snippets", "jWxzdBnG6SWyBaDPKQKC", "css"), {
+        name,
+        snippet: snippetText,
+        info
+      });
+      alert("Snippet added");
+    } catch (error) {
+      console.error("Error adding document:", error);
+    }
+  };
 
-  const getSnipCat = () => {
+  const fetchLanguages = () => {
     const q = query(collection(db, "lang"));
     const unsub = onSnapshot(q, (querySnapshot) => {
-      let products = [];
+      const langs = [];
       querySnapshot.forEach((doc) => {
-        products.push({ ...doc.data(), id: doc.id });
+        langs.push({ ...doc.data(), id: doc.id });
       });
-      setSniplang(products);
-      console.log(products);
-    })
-  }
+      setLanguages(langs);
+    });
+    return unsub;
+  };
 
-  const getcatsnippet = (id) => {
-    if (id === "all") {
-      setReload(!reload);
+  const fetchSnippetsByLang = (langId) => {
+    if (langId === "all") {
+      setReload(prev => !prev);
       return;
     }
-    const q = query(collection(db, "snippets"), where("lang_id", "==", id));
+    const q = query(collection(db, "snippets"), where("lang_id", "==", langId));
     const unsub = onSnapshot(q, (querySnapshot) => {
-      let products = [];
+      const data = [];
       querySnapshot.forEach((doc) => {
-        products.push({ ...doc.data(), id: doc.id });
+        data.push({ ...doc.data(), id: doc.id });
       });
-      setMySnip(products);
-      console.log(products);
-    })
-  }
+      setSnippetsList(data);
+    });
+    return unsub;
+  };
 
-  const viewBig = (i) => {
+  const toggleViewer = (index) => {
     if (viewer === "none") {
       setViewer("block");
-      setSinglesnip(mySnip[i]);
-    } else if (viewer === "block") {
+      setSingleSnippet(snippetsList[index]);
+    } else {
       setViewer("none");
+      setSingleSnippet(null);
     }
-  }
-
-
-
-
+  };
 
   useEffect(() => {
     const q = query(collection(db, "snippets"));
-    const unsub = onSnapshot(q, (querySnapshot) => {
-      let products = [];
+    const unsubSnippets = onSnapshot(q, (querySnapshot) => {
+      const allSnippets = [];
       querySnapshot.forEach((doc) => {
-        products.push({ ...doc.data(), id: doc.id });
+        allSnippets.push({ ...doc.data(), id: doc.id });
       });
-      setMySnip(products);
-      getSnipCat();
-    })
-  }, [reload])
+      setSnippetsList(allSnippets);
+    });
 
-  return (<div>
-     <SingleSnip display={viewer} snip={singlesnip} changer={viewBig} />
-    <div className={styles.snippetslist}>
-     
-      <select className={styles.selector} name="brand" onChange={(e) => getcatsnippet(e.target.value)}>
-        <option value="all">All</option>
-        {
-          sniplang.map((e, i) => {
-            return (<>
-              <option key={i} value={e.id}>{e.name}</option>
-            </>)
-          })
-        }
-      </select>
+    const unsubLanguages = fetchLanguages();
 
-      <div className={styles.list}>
-        <div>
-        <Link to={"/addsnip"}>
-          <div className={styles.codeeditor_blank}>
-            <h1>+</h1>
+    return () => {
+      unsubSnippets();
+      unsubLanguages();
+    };
+  }, [reload]);
+
+  return (
+    <div>
+      <SingleSnip display={viewer} snip={singleSnippet} changer={toggleViewer} />
+
+      <div className={styles.snippetslist}>
+        <select
+          className={styles.selector}
+          value={selectedLang}
+          onChange={(e) => {
+            setSelectedLang(e.target.value);
+            fetchSnippetsByLang(e.target.value);
+          }}
+        >
+          <option value="all">All</option>
+          {languages.map((lang) => (
+            <option key={lang.id} value={lang.id}>{lang.name}</option>
+          ))}
+        </select>
+
+        <div className={styles.list}>
+          <div>
+            <Link to="/addsnip">
+              <div className={styles.codeeditor_blank}>
+                <h1>+</h1>
+              </div>
+            </Link>
           </div>
-        </Link>
-        </div>
-        {
-          mySnip.map((e, i) => {
-            return (<div key={i}>
+
+          {snippetsList.map((snippet, index) => (
+            <div key={snippet.id}>
               <div className={styles.codeeditor}>
                 <div className={styles.header}>
-                  <span className={styles.title}>{e.name}</span>
-                  <button className={styles.copybtn} onClick={() => { navigator.clipboard.writeText(e.snip) }}>COPY</button>
+                  <span className={styles.title}>{snippet.name}</span>
+                  <button
+                    className={styles.copybtn}
+                    onClick={() => navigator.clipboard.writeText(snippet.snip)}
+                  >
+                    COPY
+                  </button>
                 </div>
                 <div className={styles.editor_content}>
-                  <code className={styles.code}>
-                    <p onClick={() => { viewBig(i) }}>{e.snip}</p>
-                  </code>
+                  <pre className={styles.code}>
+                    <code onClick={() => toggleViewer(index)}>
+                      {snippet.snip}
+                    </code>
+                  </pre>
                 </div>
               </div>
-            </div>)
-
-          })
-        }
+            </div>
+          ))}
+        </div>
       </div>
-
     </div>
-    </div>
-  )
+  );
+};
 
-
-}
-
-export default Home
-
+export default Home;
