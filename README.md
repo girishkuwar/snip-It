@@ -1,10 +1,10 @@
 ![PortFolio](https://i.postimg.cc/3wJ2NGxs/image.png)
 # 🔖 Snip It
-
+https://github.com/girishkuwar/snip-It
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Issues](https://img.shields.io/github/issues/your-username/code-snippet-saver)](https://github.com/your-username/code-snippet-saver/issues)
+[![Issues](https://img.shields.io/github/issues/your-username/code-snippet-saver)](https://github.com/girishkuwar/snip-It/issues)
 [![Forks](https://img.shields.io/github/forks/your-username/code-snippet-saver)](https://github.com/your-username/code-snippet-saver/network)
-[![Stars](https://img.shields.io/github/stars/your-username/code-snippet-saver)](https://github.com/your-username/code-snippet-saver/stargazers)
+[![Stars](https://img.shields.io/github/s/your-username/code-snippet-saver)](https://github.com/your-username/code-snippet-saver/stargazers)
 
 ## 📚 Overview
 
