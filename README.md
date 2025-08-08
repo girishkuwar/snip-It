@@ -1,10 +1,9 @@
-![PortFolio](https://i.postimg.cc/3wJ2NGxs/image.png)
+
 # 🔖 Snip It
-https://github.com/girishkuwar/snip-It
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Issues](https://img.shields.io/github/issues/your-username/code-snippet-saver)](https://github.com/girishkuwar/snip-It/issues)
-[![Forks](https://img.shields.io/github/forks/your-username/code-snippet-saver)](https://github.com/your-username/code-snippet-saver/network)
-[![Stars](https://img.shields.io/github/s/your-username/code-snippet-saver)](https://github.com/your-username/code-snippet-saver/stargazers)
+
+🌐 **Live Demo:** [Visit Website](https://snippets-xi.vercel.app/)
+
+
 
 ## 📚 Overview
 
@@ -38,5 +37,10 @@ npm install
 
 # Run development server
 npm run dev
+```
 
-[Snip It](https://snippets-xi.vercel.app/)
+![PortFolio](https://i.postimg.cc/3wJ2NGxs/image.png)
+
+
+
+
