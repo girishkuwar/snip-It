@@ -1,95 +1,92 @@
-p {
-  white-space: pre-wrap;
-}
-
-.snippetslist {
-  backdrop-filter: blur(5px);
-  min-height: 100vh;
-  background: #635d5d;
-  /* background: linear-gradient(90deg, rgba(99, 93, 93, 1) 0%, rgba(38, 89, 60, 1) 51%, rgba(0, 0, 0, 1) 100%); */
-  /* background: linear-gradient(90deg,rgba(0, 0, 0, 1) 0%, rgb(32, 80, 40) 51%, rgba(0, 0, 0, 1) 100%); */
-  background: linear-gradient(90deg, rgb(37 36 36) 0%, rgb(15 39 19) 51%, rgba(0, 0, 0, 1) 100%);
-}
-.codeeditor_blank {
-  height: 380px;
-  background-color: #1d1e22;
-  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.5);
-  border-radius: 8px;
-  padding: 2px;
-  margin: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.codeeditor_blank h1 {
-  font-size: 5rem;
-  color: #55eb8e;
-}
-.codeeditor {
-  max-width: 300px;
-  max-height: 380px;
-  min-height: 380px;
-  max-width: 300px;
-  background-color: #1d1e22;
-  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.5);
-  border-radius: 8px;
-  padding: 2px;
-  margin: 5px;
-  overflow-x: hidden;
-  overflow-y: scroll;
-}
-
-.codeeditor::-webkit-scrollbar {
-  display: none;
-}
-
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 10px;
-}
-
-.title {
-  font-family: Lato, sans-serif;
-  font-weight: 900;
-  font-size: 14px;
-  letter-spacing: 1.57px;
-  color: #55eb8e;
-}
-
-.editor_content {
-  margin: 0 10px 10px;
-  color: rgb(207, 207, 207);
-}
-
-.copybtn {
-  background: none;
-  border: none;
-  color: rgb(160, 160, 160);
-}
-
-.copybtn:hover {
-  color: white;
-}
-
+/* Import variables file in your main css or in the component bundler. */
+/* Modernized layout for snippet cards */
 .list {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 4fr));
-  padding: 30px 3%;
-  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 18px;
+  padding: 24px 12px;
 }
 
-.selector {
-  margin: 10px;
-  padding: 6px 12px;
-  background: rgba(0, 0, 0, 0.63);
+.snipCard {
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  padding: 14px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.03);
+  box-shadow: var(--shadow-sm);
+  transition: transform .16s ease, box-shadow .16s ease;
+  min-height: 160px;
+}
+
+.snipCard:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+
+.snipHeader {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+}
+
+.title {
+  font-weight:700;
+  font-size: 0.95rem;
   color: white;
 }
 
-.code p {
-  font-size: .9rem;
-  overflow: hidden;
+.lang {
+  font-size: 0.78rem;
+  color: var(--muted);
+  padding: 6px 10px;
+  border-radius:999px;
+  background: rgba(255,255,255,0.02);
+}
+
+/* Code preview */
+.code {
+  background: rgba(8,12,16,0.6);
+  border-radius: 8px;
+  padding:10px;
+  color:#d9e8ff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
+  font-size: 0.85rem;
+  max-height: 110px;
+  overflow: auto;
+  border: 1px solid rgba(255,255,255,0.02);
+}
+
+/* Row actions */
+.actions {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+}
+
+.copybtn {
+  padding:8px 10px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.03);
+  color: var(--muted);
+  border: none;
+  cursor: pointer;
+  transition: background .12s ease, color .12s ease;
+}
+.copybtn:hover {
+  background: linear-gradient(90deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  color: white;
+}
+
+/* Selector / filter */
+.selector {
+  padding:8px 12px;
+  background: transparent;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.03);
+  color: var(--muted);
 }
