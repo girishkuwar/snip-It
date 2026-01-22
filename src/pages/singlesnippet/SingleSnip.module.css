@@ -47,6 +47,8 @@ p {
     color: rgb(207, 207, 207);
     background-color: #00000026;
     padding: 15px 21px;
+    overflow: scroll;
+    max-height: 403px;
 }
 .todo .closebtn {
     position: absolute;
