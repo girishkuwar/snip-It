@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { addDoc, collection, onSnapshot } from "firebase/firestore";
-import { db } from "../firebase.config";
+import { db } from '../../firebase.config';
 
 const QuickPaste = () => {
   const [code, setCode] = useState("");
