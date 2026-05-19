@@ -41,69 +41,60 @@ const QuickPaste = () => {
   }, []);
 
   return (
-    <div style={{padding:"30px"}}>
+    <div className="container">
 
-      <h1>Snip-It</h1>
+    <h1 className="title">Snip-It</h1>
 
-      <input
-        placeholder="Title"
-        value={title}
-        onChange={(e)=>setTitle(e.target.value)}
-        style={{
-          width:"100%",
-          padding:"10px",
-          marginBottom:"10px"
-        }}
-      />
+    <input
+      placeholder="Title"
+      value={title}
+      onChange={(e)=>setTitle(e.target.value)}
+      className="input"
+    />
 
-      <textarea
-        placeholder="Paste code..."
-        value={code}
-        onChange={(e)=>setCode(e.target.value)}
-        style={{
-          width:"100%",
-          height:"250px",
-          padding:"15px"
-        }}
-      />
+    <textarea
+      placeholder="Paste code..."
+      value={code}
+      onChange={(e)=>setCode(e.target.value)}
+      className="textarea"
+    />
 
-      <button
-        onClick={saveSnippet}
-        style={{
-          marginTop:"10px",
-          padding:"10px 20px"
-        }}
-      >
-        Save
-      </button>
+    <button
+      onClick={saveSnippet}
+      className="saveBtn"
+    >
+      Save
+    </button>
 
-      <div style={{marginTop:"30px"}}>
-        {snippets.map(item=>(
-          <div
-            key={item.id}
-            style={{
-              border:"1px solid #333",
-              padding:"15px",
-              marginBottom:"15px"
-            }}
-          >
+    <div className="snippetList">
+
+      {snippets.map(item=>(
+        <div
+          key={item.id}
+          className="card"
+        >
+
+          <div className="cardTop">
             <h3>{item.title}</h3>
 
             <button
+              className="copyBtn"
               onClick={() =>
                 navigator.clipboard.writeText(item.snip)
               }
             >
               Copy
             </button>
-
-            <pre>{item.snip}</pre>
-
           </div>
-        ))}
-      </div>
+
+          <pre>{item.snip}</pre>
+
+        </div>
+      ))}
 
     </div>
+
+</div>
   );
 };
 
