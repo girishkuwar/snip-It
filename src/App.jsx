@@ -8,6 +8,7 @@ import AddSnip from './pages/addsnippet/AddSnip.jsx'
 import ShowRoom from './pages/showroom/ShowRoom.jsx'
 import Fullcode from './pages/fullcodeviewer/Fullcode.jsx'
 import AddShowRoom from './pages/addToShowroom/AddShowRoom.jsx'
+import QuickPaste from './pages/quickpaste/QuickPaste.jsx'
 
 function App() {
   
@@ -17,7 +18,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Layout />}>
-            <Route index element={<Home />} />
+            <Route index element={<QuickPaste />} />
+            <Route path='home' element={<Home />} />
             <Route path='addsnip' element={<AddSnip />} />
             <Route path='showroom' element={<ShowRoom/>} />
             <Route path='showroom/:id'  element={<Fullcode/>} />
