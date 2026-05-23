@@ -18,8 +18,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Layout />}>
-            <Route index element={<QuickPaste />} />
-            <Route path='home' element={<Home />} />
+            <Route index element={<Home />} />
+            <Route path='test' element={<QuickPaste />} />
             <Route path='addsnip' element={<AddSnip />} />
             <Route path='showroom' element={<ShowRoom/>} />
             <Route path='showroom/:id'  element={<Fullcode/>} />
