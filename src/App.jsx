@@ -19,7 +19,6 @@ function App() {
         <Routes>
           <Route path='/' element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path='test' element={<QuickPaste />} />
             <Route path='addsnip' element={<AddSnip />} />
             <Route path='showroom' element={<ShowRoom/>} />
             <Route path='showroom/:id'  element={<Fullcode/>} />
